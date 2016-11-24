@@ -7,7 +7,22 @@
 #include <vector>
 #include "game_entity.cpp"
 
-  
+
+class Test : public Entity{
+  Vec2 pos = vector2(50,50);
+  int height = 20;
+  int width = 10;
+  BoundingBox box = BoundingBox(pos,height,width);
+
+public:
+  void draw(){
+    sf2d_draw_rectangle((int)pos.x,(int)pos.y, width, height, RGBA8(0xFF,0x00,0x00,0xFF));
+  }
+
+  void tick(){}
+  //BoundingBox &getBounding(){ return &box;}
+} testInstance;
+
 int main()
 {
 
@@ -30,6 +45,7 @@ int main()
       sf2d_start_frame(GFX_TOP, GFX_LEFT);
       sf2d_draw_fill_circle(100, 100, 50
 			    , RGBA8(0xAA, 0x00, 0xFF, 0xFF));
+      testInstance.draw();
       sf2d_end_frame();
 
       sf2d_swapbuffers();
@@ -43,3 +59,4 @@ int main()
     sf2d_fini();
     return 0;
 }
+
