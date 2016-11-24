@@ -15,7 +15,7 @@ int main()
     sf2d_set_clear_color(RGBA8(0x00, 0x00, 0x00, 0x00));
 
     u32 kDownOld = 0, kHeldOld = 0, kUpOld = 0;
-    while (aptMainLoop() && !KeyListener_finished()) {
+    while (aptMainLoop()) {
 
       //check for key input
       hidScanInput();
