@@ -7,6 +7,7 @@
 #include <vector>
 #include "game_entity.hpp"
 #include "Vector2d.h"
+#include "Square.hpp"
 
 u32 kDownOld = 0, kHeldOld = 0, kUpOld = 0;
 u32 kDown = 0, kHeld = 0, kUp = 0;
