@@ -1,3 +1,5 @@
+#ifndef vector2d
+#define vector2d
 
 /**
    A small file implementing 2d vectors
@@ -16,3 +18,5 @@ Vec2 scalar(float mult, Vec2 a);
 Vec2 normalise(Vec2 a); 
 Vec2 reflect(Vec2 a, Vec2 normal); 
 Vec2 vector2(float a, float b);
+
+#endif
