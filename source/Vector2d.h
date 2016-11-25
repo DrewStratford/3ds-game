@@ -1,5 +1,5 @@
-#ifndef vector2d
-#define vector2d
+#ifndef VECTOR2
+#define VECTOR2
 
 /**
    A small file implementing 2d vectors

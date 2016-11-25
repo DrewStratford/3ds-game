@@ -1,5 +1,5 @@
-#ifndef game_entity
-#define game_entity
+#ifndef GAME_ENTITY
+#define GAME_ENTITY
 
 #include "Vector2d.h"
 #include <vector>
@@ -23,6 +23,7 @@ public:
   virtual BoundingBox *getBounding();
   virtual void draw();
   virtual void tick();
+  virtual int getHealth();
 };
 
 #endif
