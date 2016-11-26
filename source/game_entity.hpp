@@ -3,6 +3,7 @@
 
 #include "Vector2d.h"
 #include <vector>
+#include <3ds.h>
 
 class BoundingBox{
   Vec2 pos; //the top lefthand corner
@@ -22,7 +23,7 @@ class Entity{
 public:
   virtual BoundingBox *getBounding();
   virtual void draw();
-  virtual void tick();
+  virtual void tick(u32 kHeld, u32 kPressed, u32 kUp);
   virtual int getHealth();
 };
 

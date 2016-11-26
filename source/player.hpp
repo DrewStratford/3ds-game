@@ -21,7 +21,7 @@ private:
 public:
   Player(float x, float y);
   void draw();
-  void tick();
+  void tick(u32, u32, u32);
   int getHealth();
   BoundingBox *getBounding();
 };

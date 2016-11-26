@@ -18,7 +18,29 @@ void Player::draw(){
   sf2d_draw_rectangle((int)position.x,(int)position.y, width, height, colour);
 }
 
-void Player::tick(){
+void Player::tick(u32 held, u32 pressed, u32 released){
+  float scale = 2;
+  Vec2 dir = vector2(0,0);
+
+  if(held & KEY_B || pressed & KEY_B)
+    scale = 5;
+  if(held & KEY_LEFT || pressed & KEY_LEFT)
+    dir = vector2(-1,0);
+  if(held & KEY_RIGHT || pressed & KEY_RIGHT)
+    dir = vector2(1,0);
+  if(held & KEY_UP || pressed & KEY_UP)
+    dir = vector2(0,1);
+  if(held & KEY_DOWN || pressed & KEY_DOWN)
+    dir = vector2(0,-1);
+
+  if(dir.x == 0 && dir.y == 0){
+    state = Player_State::still;
+  } else{
+    state = Player_State::moving;
+  }
+    
+  dir = scalar(scale, dir);
+  position = add(position,dir);
 }
 
 int Player::getHealth(){
