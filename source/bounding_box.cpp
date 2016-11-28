@@ -1,4 +1,4 @@
-#include "game_entity.hpp"
+#include "bounding_box.hpp"
 
 BoundingBox::BoundingBox(Vec2 position, int h, int w){
     pos = position;
@@ -27,5 +27,4 @@ bool BoundingBox::intersects(BoundingBox box){
     }
     return false;
 }
-
 

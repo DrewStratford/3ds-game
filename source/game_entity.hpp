@@ -1,19 +1,7 @@
 #ifndef GAME_ENTITY
 #define GAME_ENTITY
 
-#include "Vector2d.h"
-#include <vector>
-#include <3ds.h>
-
-class BoundingBox{
-  Vec2 pos; //the top lefthand corner
-  int height, width;
-public:
-  BoundingBox(Vec2 position, int h, int w);
-  bool contains(Vec2 point);
-  std::vector<Vec2> points();
-  bool intersects(BoundingBox box);
-};
+#include "bounding_box.hpp"
 
 /**
    An interface describing entities in the game eg player, brick
