@@ -5,9 +5,9 @@
 
 class Square {
 public:
-	virtual BoundingBox getBounding();
-  	virtual void draw();
-  	virtual void tick();
+  virtual void draw(int, int);
+  virtual void tick();
+  virtual bool is_solid();
 };
 
 #endif
