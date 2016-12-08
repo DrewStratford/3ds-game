@@ -88,3 +88,26 @@ void Screen::draw(){
     }
   }
 }
+
+/** 
+    returns true whenever @entity is inside a 
+    piece of terrain that is considered solid.
+*/
+bool Screen::in_solid(Entity * entity){
+  BoundingBox bounds = entity->getBounding();
+  /*
+    iterate through the points in the bounding box
+    to check if they are in a solid square
+  */
+  for(auto vec : bounds.points()){
+    // find tile we're in using modulo
+    int x = (int)vec.x % TILE_SIZE;
+    int y = (int)vec.y % TILE_SIZE;
+    Square * square = get_square(x,y);
+    if(square->is_solid()){
+      return true;
+    }
+  }
+    
+  return false;
+}

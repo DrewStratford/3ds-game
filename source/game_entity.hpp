@@ -9,7 +9,7 @@
  */
 class Entity{
 public:
-  virtual BoundingBox *getBounding();
+  virtual BoundingBox getBounding();
   virtual void draw();
   virtual void tick(u32 kHeld, u32 kPressed, u32 kUp);
   virtual int getHealth();

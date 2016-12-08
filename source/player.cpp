@@ -47,6 +47,6 @@ int Player::getHealth(){
   return health;
 }
 
-BoundingBox *Player::getBounding(){
-  return NULL;
+BoundingBox Player::getBounding(){
+  return BoundingBox(position, height, width);
 }

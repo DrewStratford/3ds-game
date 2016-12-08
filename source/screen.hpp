@@ -2,6 +2,7 @@
 #define SCREEN
 
 #include "Square.hpp"
+#include "game_entity.hpp"
 
 class Screen {
 
@@ -14,6 +15,8 @@ public:
   Screen();
   Square *get_square(int, int);
   void set_square(Square*, int, int);
+
+  bool in_solid(Entity*);
 
   void draw();
 
