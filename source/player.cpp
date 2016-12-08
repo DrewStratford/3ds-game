@@ -29,9 +29,9 @@ void Player::tick(u32 held, u32 pressed, u32 released){
   if(held & KEY_RIGHT || pressed & KEY_RIGHT)
     dir = vector2(1,0);
   if(held & KEY_UP || pressed & KEY_UP)
-    dir = vector2(0,1);
-  if(held & KEY_DOWN || pressed & KEY_DOWN)
     dir = vector2(0,-1);
+  if(held & KEY_DOWN || pressed & KEY_DOWN)
+    dir = vector2(0,1);
 
   if(dir.x == 0 && dir.y == 0){
     state = Player_State::still;

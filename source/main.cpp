@@ -10,6 +10,7 @@
 #include "Vector2d.h"
 #include "Square.hpp"
 #include "screen.hpp"
+#include "player.hpp"
 
 u32 kDownOld = 0, kHeldOld = 0, kUpOld = 0;
 u32 kDown = 0, kHeld = 0, kUp = 0;
@@ -21,6 +22,7 @@ int main()
     sf2d_set_clear_color(RGBA8(0x00, 0x00, 0x00, 0x00));
 
     auto screen = new Screen();
+    auto player = new Player(0,16 * 5);
 
     while (aptMainLoop()) {
 
@@ -33,11 +35,18 @@ int main()
       if(kDown & KEY_START){
 	break;
       }
+      //update player
+      player->tick(kHeld, kDown, kUp);
       // draws the next frame 
       sf2d_start_frame(GFX_TOP, GFX_LEFT);
-      sf2d_draw_fill_circle(100, 100, 50
-      			    , RGBA8(0xAA, 0x00, 0xFF, 0xFF));
       screen->draw();
+      player->draw();
+      //check for collisions
+      if(screen->in_solid(player)){
+	sf2d_draw_fill_circle(100, 100, 50
+			    , RGBA8(0xAA, 0x00, 0xFF, 0xFF));
+      }
+	
       sf2d_end_frame();
 
       sf2d_swapbuffers();

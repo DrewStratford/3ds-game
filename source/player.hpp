@@ -14,8 +14,8 @@ private:
   int health = 100;
   Vec2 position;
   Vec2 facing = vector2(0,1);
-  int height = 50;
-  int width  = 20;
+  int height = 16;
+  int width  = 16;
   Player_State state = still;
 
 public:

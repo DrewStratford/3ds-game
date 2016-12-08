@@ -33,6 +33,8 @@ public:
     sf2d_draw_rectangle(x, y, TILE_SIZE, TILE_SIZE, colour);
   }
 };
+
+
 /**
    Converts coordinates to contigous map.
    Use this as apposed to by hand to avoid
@@ -78,6 +80,7 @@ Square *Screen::get_square(int x, int y){
   return map[convert_coords(x, y)];
 }
 
+
 /**
    Iterates through the map and draws the squares
 */
@@ -88,6 +91,7 @@ void Screen::draw(){
     }
   }
 }
+
 
 /** 
     returns true whenever @entity is inside a 
@@ -100,9 +104,9 @@ bool Screen::in_solid(Entity * entity){
     to check if they are in a solid square
   */
   for(auto vec : bounds.points()){
-    // find tile we're in using modulo
-    int x = (int)vec.x % TILE_SIZE;
-    int y = (int)vec.y % TILE_SIZE;
+    // find tile we're in using division
+    int x = vec.x / TILE_SIZE;
+    int y = vec.y / TILE_SIZE;
     Square * square = get_square(x,y);
     if(square->is_solid()){
       return true;
