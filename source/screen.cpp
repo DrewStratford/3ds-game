@@ -27,7 +27,7 @@ public:
 class Floor : public Square{
 public:
   void tick(){}
-  bool is_solid(){return true;}
+  bool is_solid(){return false;}
   void draw(int x, int y){
     auto colour = RGBA8(0x99,0x99,0x99,0xFF);
     sf2d_draw_rectangle(x, y, TILE_SIZE, TILE_SIZE, colour);
