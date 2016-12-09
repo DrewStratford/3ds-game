@@ -107,8 +107,8 @@ bool Screen::in_solid(BoundingBox bounds){
   */
   for(auto vec : bounds.points()){
     // find tile we're in using division
-    int x = vec.x / 16.0;
-    int y = vec.y / 16.0;
+    int x = vec.x / TILE_SIZE;
+    int y = vec.y / TILE_SIZE;
     Square * square = get_square(x,y);
     if(square->is_solid()){
       return true;

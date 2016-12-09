@@ -55,5 +55,7 @@ int Player::getHealth(){
 }
 
 BoundingBox Player::getBounding(){
+  //note we make the width and height slightly smaller
+  // to work better with terrain collision checking
   return BoundingBox(position, height - 0.1, width - 0.1);
 }
