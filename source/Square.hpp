@@ -1,7 +1,6 @@
 #ifndef squares
 #define squares
 
-#include "game_entity.hpp"
 
 class Square {
 public:

@@ -6,10 +6,10 @@
 #include <math.h>
 #include <vector>
 
-#include "game_entity.hpp"
 #include "Vector2d.h"
 #include "Square.hpp"
 #include "screen.hpp"
+#include "game_entity.hpp"
 #include "player.hpp"
 
 u32 kDownOld = 0, kHeldOld = 0, kUpOld = 0;
@@ -36,16 +36,11 @@ int main()
 	break;
       }
       //update player
-      player->tick(kHeld, kDown, kUp);
+      player->tick(screen, kHeld, kDown, kUp);
       // draws the next frame 
       sf2d_start_frame(GFX_TOP, GFX_LEFT);
       screen->draw();
       player->draw();
-      //check for collisions
-      if(screen->in_solid(player)){
-	sf2d_draw_fill_circle(100, 100, 50
-			    , RGBA8(0xAA, 0x00, 0xFF, 0xFF));
-      }
 	
       sf2d_end_frame();
 

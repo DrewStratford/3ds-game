@@ -2,6 +2,7 @@
 #define PLAYER
 
 #include "game_entity.hpp"
+#include "screen.hpp"
 #include "Vector2d.h"
 
 /**
@@ -21,7 +22,7 @@ private:
 public:
   Player(float x, float y);
   void draw();
-  void tick(u32, u32, u32);
+  void tick(Screen*, u32, u32, u32);
   int getHealth();
   BoundingBox getBounding();
 };

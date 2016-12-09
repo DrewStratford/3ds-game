@@ -1,5 +1,4 @@
 #include <sf2d.h>
-
 #include "screen.hpp"
 
 #define SCREEN_WIDTH 400
@@ -68,6 +67,10 @@ Screen::Screen(){
     ++x;
     ++y;
   }
+
+  //make a hole
+  map[convert_coords(6,6)] = floor;
+  map[convert_coords(7,7)] = floor;
 }
 
 
@@ -94,19 +97,18 @@ void Screen::draw(){
 
 
 /** 
-    returns true whenever @entity is inside a 
+    returns true whenever @bounds is inside a 
     piece of terrain that is considered solid.
 */
-bool Screen::in_solid(Entity * entity){
-  BoundingBox bounds = entity->getBounding();
+bool Screen::in_solid(BoundingBox bounds){
   /*
     iterate through the points in the bounding box
     to check if they are in a solid square
   */
   for(auto vec : bounds.points()){
     // find tile we're in using division
-    int x = vec.x / TILE_SIZE;
-    int y = vec.y / TILE_SIZE;
+    int x = vec.x / 16.0;
+    int y = vec.y / 16.0;
     Square * square = get_square(x,y);
     if(square->is_solid()){
       return true;

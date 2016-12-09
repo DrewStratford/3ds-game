@@ -18,9 +18,11 @@ void Player::draw(){
   sf2d_draw_rectangle((int)position.x,(int)position.y, width, height, colour);
 }
 
-void Player::tick(u32 held, u32 pressed, u32 released){
+void Player::tick(Screen * screen, u32 held, u32 pressed, u32 released){
   float scale = 2;
   Vec2 dir = vector2(0,0);
+
+  Vec2 old_position = position;
 
   if(held & KEY_B || pressed & KEY_B)
     scale = 5;
@@ -41,6 +43,9 @@ void Player::tick(u32 held, u32 pressed, u32 released){
     
   dir = scalar(scale, dir);
   position = add(position,dir);
+  //check that we are not in a solid
+  if(screen->in_solid(this->getBounding()))
+    position = old_position;
 }
 
 int Player::getHealth(){

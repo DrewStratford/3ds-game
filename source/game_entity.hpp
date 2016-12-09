@@ -1,6 +1,7 @@
 #ifndef GAME_ENTITY
 #define GAME_ENTITY
 
+#include "screen.hpp"
 #include "bounding_box.hpp"
 
 /**
@@ -11,7 +12,7 @@ class Entity{
 public:
   virtual BoundingBox getBounding();
   virtual void draw();
-  virtual void tick(u32 kHeld, u32 kPressed, u32 kUp);
+  virtual void tick(Screen * screen,u32 kHeld, u32 kPressed, u32 kUp);
   virtual int getHealth();
 };
 
