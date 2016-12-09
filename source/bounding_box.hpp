@@ -7,9 +7,9 @@
 
 class BoundingBox{
   Vec2 pos; //the top lefthand corner
-  int height, width;
+  float height, width;
 public:
-  BoundingBox(Vec2 position, int h, int w);
+  BoundingBox(Vec2 position, float h, float w);
   bool contains(Vec2 point);
   std::vector<Vec2> points();
   bool intersects(BoundingBox box);

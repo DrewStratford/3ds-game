@@ -5,6 +5,7 @@ Player::Player(float x, float y){
   position = vector2(x,y);
 }
 
+
 void Player::draw(){
   auto colour = RGBA8(0xFF,0x00,0x00,0xFF);
   
@@ -17,6 +18,7 @@ void Player::draw(){
   
   sf2d_draw_rectangle((int)position.x,(int)position.y, width, height, colour);
 }
+
 
 void Player::tick(Screen * screen, u32 held, u32 pressed, u32 released){
   float scale = 2;
@@ -53,5 +55,5 @@ int Player::getHealth(){
 }
 
 BoundingBox Player::getBounding(){
-  return BoundingBox(position, height, width);
+  return BoundingBox(position, height - 0.1, width - 0.1);
 }

@@ -1,6 +1,6 @@
 #include "bounding_box.hpp"
 
-BoundingBox::BoundingBox(Vec2 position, int h, int w){
+BoundingBox::BoundingBox(Vec2 position, float h, float w){
     pos = position;
     height = h; width = w;
   }
