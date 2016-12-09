@@ -43,11 +43,24 @@ void Player::tick(Screen * screen, u32 held, u32 pressed, u32 released){
     state = Player_State::moving;
   }
     
-  dir = scalar(scale, dir);
-  position = add(position,dir);
+  //TODO: this should be in game_entity as 'move()'
+  // or something similar.
+  position = add(position,scalar(scale,dir));
   //check that we are not in a solid
-  if(screen->in_solid(this->getBounding()))
+  if(screen->in_solid(this->getBounding())){
+    // try again but with smaller scales
+    // until we are clean against the wall
+    scale = 1.9;
+    for(float scale = 2; scale > 0; scale -= 0.1){
+      position = add(old_position,scalar(scale,dir));
+      if(!screen->in_solid(this->getBounding())){
+	old_position = position;
+	break;
+      }
+      
+    }
     position = old_position;
+  }
 }
 
 int Player::getHealth(){

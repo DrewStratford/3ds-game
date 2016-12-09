@@ -68,9 +68,10 @@ Screen::Screen(){
     ++y;
   }
 
-  //make a hole
+  //make some holes
   map[convert_coords(6,6)] = floor;
   map[convert_coords(7,7)] = floor;
+  map[convert_coords(9,9)] = floor;
 }
 
 
